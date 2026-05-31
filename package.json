@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Real-time sprint retrospective board (JWT + bcrypt, WebSocket, Zustand). pnpm workspace.",
+  "packageManager": "pnpm@10.12.4",
   "scripts": {
     "build": "pnpm --filter retro-board-client build",
     "start": "node server/server.js",
     "dev:server": "pnpm --filter retro-board-server dev",
     "dev:client": "pnpm --filter retro-board-client dev"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
   }
 }

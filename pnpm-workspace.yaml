@@ -1,3 +1,8 @@
 packages:
   - server
   - client
+
+# esbuild (pulled in by vite) ships a prebuilt binary via a build script.
+# pnpm blocks build scripts by default, so allow this one.
+onlyBuiltDependencies:
+  - esbuild

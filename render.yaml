@@ -1,0 +1,21 @@
+# Render Blueprint for Retro Board (single web service, pnpm workspace).
+#
+# If this repo's root IS the retro-board folder, deploy as-is.
+# If you push the whole `portfolio` repo, set the service's Root Directory to
+# `retro-board` in the Render dashboard.
+services:
+  - type: web
+    name: retro-board
+    runtime: node
+    plan: free
+    buildCommand: corepack enable && pnpm install && pnpm build
+    startCommand: pnpm start
+    envVars:
+      # Render generates a strong secret once and keeps it stable across deploys.
+      - key: JWT_SECRET
+        generateValue: true
+      # Dot-votes each participant gets, enforced server-side per identity.
+      - key: VOTE_BUDGET
+        value: "5"
+      - key: NODE_VERSION
+        value: "22"
